@@ -60,12 +60,34 @@ body {
   }
   
   .nav-link {
+    /* color: #fff;
+    text-decoration: none;
+    margin-right: 20px; */
     color: #fff;
     text-decoration: none;
-    /* margin-left: 20px; */
     margin-right: 20px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition: all 0.3s ease;
   }
-  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  .nav-link:hover::before {
+    width: 100%;
+  }
+  .nav-link:hover {
+    color: #fff;
+  }
   .btn {
     background-color: transparent;
     color: white;
@@ -76,12 +98,14 @@ body {
     font-weight: bold;
     text-decoration: none;
   }
-  
+
   .btn:hover {
     background-color: white;
     color: black;
   }
-
+  .btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
   
   .center-image {
     text-align: center;
@@ -121,6 +145,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 220px;
+
   }
   .youtube p, .instagram p {
     text-decoration: none;
@@ -130,8 +155,9 @@ body {
   }
   
   .youtube p{
-    color: white;
     text-decoration: none;
+    color: white;
+
     font-size:30px ;
     margin-top: 0px;
     font-weight: bold;
@@ -142,6 +168,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
+    text-decoration: none;
   }
   
   .instagram img {
@@ -153,6 +180,7 @@ body {
     font-size: 30px;
     margin-top: 10px;
     font-weight: bold;
+    text-decoration: none;
     
 }
 .youtube p a, .instagram p a {
@@ -160,6 +188,7 @@ body {
   display: inline-block;
   overflow: hidden;
   text-decoration: none;
+  transition: transform 0.3s ease; 
 }
 
 
@@ -178,6 +207,11 @@ body {
 .youtube p a:hover::before, .instagram p a:hover::before {
   width: 100%;
 }
+.youtube p a:hover,
+.instagram p a:hover {
+  transform: scale(1.2); /* Add this line */
+}
+
 .youtube p a:link,
 .instagram p a:link,
 .youtube p a:visited,
